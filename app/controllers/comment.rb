@@ -11,9 +11,9 @@ end
 post '/questions/:id/comments' do
   require_user
   @question = Question.find_by(id: params[:id])
-
   @comment = @question.comments.new(params[:comment])
   @comment.user_id = session[:user]
+
   if @comment.save
     if request.xhr?
       status 200
@@ -36,6 +36,7 @@ get '/questions/:question_id/answers/:answer_id/comments/new' do
   require_user
   question = Question.find_by(id: params[:question_id])
   @answer = Answer.find_by(id: params[:answer_id])
+  
   if request.xhr?
     erb :"partials/_new_on_answer", layout:false, locals:{answer: @answer}
   else

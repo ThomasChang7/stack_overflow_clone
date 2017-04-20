@@ -1,12 +1,9 @@
 get '/questions' do
-# List out the questions
   @questions = Question.all
   erb :'questions/index'
-
 end
 
 get '/questions/new' do
-# Shows a form for a new question
   redirect '/404' if !signed_in?
   erb :'questions/new'
 end
@@ -14,7 +11,6 @@ end
 
 post '/questions/new' do
   require_user
-# Save the question into database, otherwise show page with
   @question = Question.new(params[:question])
   @question.views = 0
   @question.user_id = session[:user]
@@ -39,8 +35,6 @@ get '/questions/:id' do
     erb :'404'
   end
 end
-
-# Stretch Challenges
 
 get '/questions/:id/edit' do
   redirect '/404' if !current_user

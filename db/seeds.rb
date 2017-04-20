@@ -6,13 +6,11 @@ Vote.destroy_all
 
 
 User.create! [
-
   {:username => 'michael', :email =>'michael@email.com', :password =>'password'},
   {:username => 'peter', :email =>'peter@email.com', :password => 'password'},
   {:username => 'thomas', :email =>'thomas@email.com', :password => 'password'},
   {:username => 'sophia', :email =>'sophia@email.com', :password => 'password'}
-
-]
+] 
 
 Question.create! [
   {:views => 0, :title => 'n00b ruby question l0l', :question_content => 'how do i do something in ruby?', :user_id => 1},

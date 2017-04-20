@@ -15,5 +15,4 @@ class Question < ActiveRecord::Base
   def time_since_posted
     self.distance_of_time_in_words(Time.now, self.created_at)
   end
-
 end
