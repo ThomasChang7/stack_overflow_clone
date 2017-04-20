@@ -45,14 +45,3 @@ get '/users/:id' do
     redirect '/404'
   end
 end
-
-# STRETCH
-
-get '/users/:id/edit' do # maybe, or maybe just form somewhere else
-end
-
-put '/users/:id' do
-end
-
-delete '/users/:id' do
-end

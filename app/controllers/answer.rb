@@ -1,4 +1,3 @@
-
 get '/questions/:id/answers/new' do
   @question = Question.find_by(id: params[:id])
   erb :'/questions/show'
@@ -10,7 +9,6 @@ post '/questions/:id/answers' do
   @answer = Answer.new(params[:answer])
   @answer.question_id = params[:id]
   @answer.user_id = session[:user]
-
 
   if request.xhr?
     if @answer.save
@@ -37,5 +35,4 @@ post '/questions/:id/solved/:answer_id' do
   answer.best_answer = true
   answer.save
   return '<img class="inline-block" src="/images/check.png">'
-
 end
